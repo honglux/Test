@@ -1,0 +1,168 @@
+array
+
+Array Partition I
+
+Reshape the Matrix
+
+Max Consecutive Ones
+
+Max Area of Island
+
+Find All Duplicates in an Array
+
+------------------------------------
+
+Dynamic Programming
+
+Counting Bits
+
+Best Time to Buy and Sell Stock
+
+Paint House
+
+Number Of Corner Rectangles
+
+Shortest Path Visiting All Nodes
+
+Burst Balloons
+
+-----------------------------------------
+
+String
+
+To Lower Case
+
+Unique Morse Code Words
+
+Output Contest Matches
+
+Find and Replace Pattern
+
+Special Binary String
+
+Word Abbreviation
+
+--------------------------------------------------
+
+Math
+
+Self Dividing Numbers
+
+Projection Area of 3D Shapes
+
+Encode and Decode TinyURL
+
+Complex Number Multiplication
+
+Best Meeting Point
+
+Remove 9
+
+------------------------------------------------------
+
+Tree
+
+Merge Two Binary Trees
+
+Search in a Binary Search Tree
+
+Maximum Binary Tree
+
+Insert into a Binary Search Tree
+
+Encode N-ary Tree to Binary Tree
+
+Serialize and Deserialize N-ary Tree
+
+--------------------------------------------------------
+
+Hash Table
+
+Find Anagram Mappings
+
+N-Repeated Element in Size 2N Array
+
+Daily Temperatures
+
+Sparse Matrix Multiplication
+
+Smallest Range
+
+Maximum Frequency Stack
+
+---------------------------------------------------------
+
+Depth-first Search
+
+Nested List Weight Sum
+
+Maximum Depth of N-ary Tree
+
+Distribute Coins in Binary Tree
+
+Regions Cut By Slashes
+
+Unique Paths III
+
+Robot Room Cleaner
+
+----------------------------------------------------------
+
+Binary Search
+
+Peak Index in a Mountain Array
+
+Intersection of Two Arrays
+
+Search in a Sorted Array of Unknown Size
+
+Capacity To Ship Packages Within D Days
+
+Smallest Rectangle Enclosing Black Pixels
+
+Swim in Rising Water
+
+---------------------------------------------------------
+
+Two Pointers
+
+Squares of a Sorted Array
+
+Reverse String
+
+Partition Labels
+
+Candy Crush
+
+Longest Substring with At Most Two Distinct Characters
+
+Subarrays with K Different Integers
+
+---------------------------------------------------------------
+
+Greedy
+
+Delete Columns to Make Sorted
+
+Two City Scheduling
+
+Minimum Add to Make Parentheses Valid
+
+Find Permutation
+
+Couples Holding Hands
+
+---------------------------------------------------------------------
+
+Breadth-first Search
+
+N-ary Tree Level Order Traversal
+
+Employee Importance
+
+Find Bottom Left Tree Value
+
+Find Largest Value in Each Tree Row
+
+Sliding Puzzle
+
