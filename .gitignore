@@ -351,3 +351,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+leetcode/LeetCode/.vs/LeetCode/v15/Browse.VC.db
