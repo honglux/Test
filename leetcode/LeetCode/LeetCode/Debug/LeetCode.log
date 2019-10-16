@@ -1,2 +1,21 @@
-﻿  main.cpp
-  LeetCode.vcxproj -> C:\Users\xuhlu\Desktop\leetcode\LeetCode\Debug\LeetCode.exe
+﻿  ArrayPartitionI.cpp
+  BestTimetoBuyandSellStock.cpp
+  CountingBits.cpp
+  FindMinimuminRotatedSortedArrayII.cpp
+  LongestConsecutiveSequence.cpp
+  main.cpp
+  MaxAreaofIsland.cpp
+  MaxChunksToMakeSortedII.cpp
+  MaximumSumof3NonOverlappingSubarrays.cpp
+  NumberOfCornerRectangles.cpp
+c:\users\xuhlu\desktop\test\leetcode\leetcode\leetcode\numberofcornerrectangles.cpp(25): warning C4018: '<': signed/unsigned mismatch
+c:\users\xuhlu\desktop\test\leetcode\leetcode\leetcode\numberofcornerrectangles.cpp(27): warning C4018: '<': signed/unsigned mismatch
+c:\users\xuhlu\desktop\test\leetcode\leetcode\leetcode\numberofcornerrectangles.cpp(31): warning C4018: '<': signed/unsigned mismatch
+c:\users\xuhlu\desktop\test\leetcode\leetcode\leetcode\numberofcornerrectangles.cpp(35): warning C4018: '<': signed/unsigned mismatch
+  ReshapetheMatrix.cpp
+c:\users\xuhlu\desktop\test\leetcode\leetcode\leetcode\reshapethematrix.cpp(45): warning C4101: 'e': unreferenced local variable
+  TeemoAttacking.cpp
+  ValidParentheses.cpp
+c:\users\xuhlu\desktop\test\leetcode\leetcode\leetcode\validparentheses.cpp(32): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  LeetCode.vcxproj -> C:\Users\xuhlu\Desktop\Test\leetcode\LeetCode\Debug\LeetCode.exe
