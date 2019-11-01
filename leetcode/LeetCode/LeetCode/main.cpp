@@ -187,13 +187,15 @@ int main()
 	//}
 	//);
 
-	unordered_map<int, vector<int>> a = unordered_map<int, vector<int>>();
-	a[0] = vector<int>(3, 3);
+	cout << (string("qwe") < string("abcde")) << endl;
 
-	for (unordered_map<int, vector<int>>::iterator it = a.begin(); it != a.end(); it++)
-	{
-		cout << (*it).first << endl;
-	}
+	string a = "abc";
+	string b;
+
+	b = a;
+	a = "";
+	cout << b << endl;
+
 
 
 	system("pause");
