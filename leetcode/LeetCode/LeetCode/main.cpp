@@ -7,6 +7,10 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <queue>
+#include <numeric>
+#include <sstream>
+#include <iomanip>
+
 
 #include "ArrayPartitionI.h"
 #include "ReshapetheMatrix.h"
@@ -22,6 +26,18 @@
 #include "NumberOfCornerRectangles.h"
 
 using namespace std;
+
+void bit_pri(int);
+char findTheDifference(string, string);
+vector<int> hash_sort(vector<int>&);
+template<class T> void vec_pri(vector<T>&);
+pair<float,float> solve_1v2p(float, float, float);
+int GCD(int, int);
+bool collinear(pair<int, int>, pair<int, int>, pair<int, int>);
+unordered_set<int> prim_fac(int);
+vector<int> sort_dec(const vector<int>&);
+vector<pair<int, int>> prio_sort_pair_inc(vector<pair<int, int>>&);
+int str_to_int(const string&);
 
 struct test2
 {
@@ -187,14 +203,19 @@ int main()
 	//}
 	//);
 
-	cout << (string("qwe") < string("abcde")) << endl;
+	//int a = 0;
+	//pair<int, int> b = make_pair<int, int>(a, 0);	//Error!
+	//pair<int, int> b = make_pair(a, 0);	//Good!
 
-	string a = "abc";
-	string b;
+	int abcdefg = 0;
 
-	b = a;
-	a = "";
-	cout << b << endl;
+	vector<int> a = vector<int>();
+	static vector<int> s_t = vector<int>();
+	sort(a.begin(), a.end(),
+		[](const int& a, const int& b) -> bool
+		{
+			s_t[1] == s_t[2];
+		});
 
 
 
@@ -205,3 +226,153 @@ int main()
 
 }
 
+void bit_pri(int a)
+{
+	bitset<32> d(a);
+	cout << d << endl;
+}
+
+char findTheDifference(string s, string t) 
+{
+	int xor = 0;
+	for (int i = 0; i < s.length(); i++)
+	{
+		xor = xor ^s[i] ^ t[i];
+		cout << xor << endl;
+	}
+	
+	cout << (xor ^t[s.length()]) << endl;
+
+	return (char)(xor^t[s.length()]);
+}
+
+vector<int> hash_sort(vector<int>& vec)
+{
+	//int max = *max_element(vec.begin(), vec.end());
+	//int min = *min_element(vec.begin(), vec.end());
+	int minv = INT32_MAX, maxv = INT32_MIN;
+	
+	vector<int> result = vector<int>();
+	unordered_map<int, int> buffer = unordered_map<int, int>();
+
+	for (int i = 0; i < vec.size(); i++)
+	{
+		minv = min(minv, vec[i]);
+		maxv = max(maxv, vec[i]);
+		buffer[vec[i]]++;
+	}
+
+	for (int i = minv; i <= maxv; i++)
+	{
+		for (int j = 0; j < buffer[i]; j++)
+		{
+			result.push_back(i);
+		}
+	}
+
+	return result;
+}
+
+template<class T>
+void vec_pri(vector<T>& vec)
+{
+	for (auto elem : vec)
+	{
+		cout << elem << " | ";
+	}
+	cout << endl;
+}
+
+pair<float,float> solve_1v2p(float a, float b, float c)
+{
+	float x1 = (float)(-b + sqrt(b*b - 4 * a * c)) / (float)(2 * a);
+	float x2 = (float)(-b - sqrt(b*b - 4 * a * c)) / (float)(2 * a);
+
+	return make_pair(x1, x2);
+}
+
+int GCD(int a, int b)
+{
+	if (a == b) { return a; }
+	if (a > b) { return GCD(a - b, b); }
+	return GCD(a, b - a);
+}
+
+bool collinear(pair<int, int> p1, pair<int, int> p2,pair<int, int> p3)
+{
+	if ((p1.first * (p2.second - p3.second) + p2.first * (p3.second - p1.second) +
+		p3.first * (p1.second - p2.second)) == 0)
+	{
+		return true;
+	}
+	return false;
+}
+
+unordered_set<int> prim_fac(int a)
+{
+	unordered_set<int> result = unordered_set<int>();
+
+	bool ins = false;
+	for (int i = 2; i <= a / 2; i++)
+	{
+		ins = false;
+		while (a % i == 0)
+		{
+			ins = true;
+			a /= i;
+		}
+		if (ins) { result.insert(i); }
+	}
+	return result;
+}
+
+bool is_prime(int a)
+{
+	for (int i = 2; i < a/2; i++)
+	{
+		if (a % i == 0) { return false; }
+	}
+	return a >= 2;
+}
+
+vector<int> sort_dec(const vector<int>& vec)
+{
+	vector<int> res = vec;
+	sort(res.begin(), res.end(),
+		[&](const int l, const int r) -> bool
+		{
+			return l > r;
+		});
+	return res;
+}
+
+vector<pair<int, int>> prio_sort_pair_inc(vector<pair<int, int>>& a)
+{
+	auto comp = [](const pair<int, int>& p1, const pair<int,int>& p2) -> bool
+	{
+		return p1.first > p2.first;
+	};
+
+	vector<pair<int, int>> res;
+	res.reserve(a.size());
+
+	//priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(comp)> pq = priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(comp)>(comp);
+	priority_queue<pair<int, int>, vector<pair<int, int>>, std::greater<pair<int,int>>> pq = priority_queue<pair<int, int>, vector<pair<int, int>>, std::greater<pair<int,int>>>();
+	for (int i = 0; i < a.size(); i++)
+	{
+		pq.push(a[i]);
+	}
+	while (!pq.empty())
+	{
+		res.push_back(pq.top());
+		pq.pop();
+	}
+	return res;
+}
+
+int str_to_int(const string& s)
+{
+	int num = 0;
+	istringstream(s) >> num;
+	return num;
+}
