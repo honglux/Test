@@ -38,6 +38,7 @@ unordered_set<int> prim_fac(int);
 vector<int> sort_dec(const vector<int>&);
 vector<pair<int, int>> prio_sort_pair_inc(vector<pair<int, int>>&);
 int str_to_int(const string&);
+template<class T1, class T2> bool self_unordered_set(pair<T1, T2> insertv, pair<T1, T2> findv);
 
 struct test2
 {
@@ -209,15 +210,14 @@ int main()
 
 	int abcdefg = 0;
 
-	vector<int> a = vector<int>();
-	static vector<int> s_t = vector<int>();
-	sort(a.begin(), a.end(),
-		[](const int& a, const int& b) -> bool
-		{
-			s_t[1] == s_t[2];
-		});
 
-
+	vector<pair<int, int>> test1 = vector<pair<int, int>>();
+	test1.push_back(make_pair(1, 2));
+	test1.push_back(make_pair(7, 2));
+	test1.push_back(make_pair(1, 9));
+	test1.push_back(make_pair(5, 6));
+	test1 = prio_sort_pair_inc(test1);
+	cout << test1[0].first << "|" << test1[0].second << "|" << test1[1].first << "|" << test1[1].second << endl;
 
 	system("pause");
 
@@ -353,11 +353,19 @@ vector<pair<int, int>> prio_sort_pair_inc(vector<pair<int, int>>& a)
 		return p1.first > p2.first;
 	};
 
+	struct Compare
+	{
+		bool operator()(const pair<int, int>& p1, const pair<int, int>& p2)
+		{
+			return p1.first < p2.first;
+		}
+	};
+
 	vector<pair<int, int>> res;
 	res.reserve(a.size());
 
-	//priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(comp)> pq = priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(comp)>(comp);
-	priority_queue<pair<int, int>, vector<pair<int, int>>, std::greater<pair<int,int>>> pq = priority_queue<pair<int, int>, vector<pair<int, int>>, std::greater<pair<int,int>>>();
+	priority_queue<pair<int, int>, vector<pair<int, int>>, Compare> pq = priority_queue<pair<int, int>, vector<pair<int, int>>, Compare>();
+	//priority_queue<pair<int, int>, vector<pair<int, int>>, std::greater<pair<int,int>>> pq = priority_queue<pair<int, int>, vector<pair<int, int>>, std::greater<pair<int,int>>>();
 	for (int i = 0; i < a.size(); i++)
 	{
 		pq.push(a[i]);
@@ -375,4 +383,18 @@ int str_to_int(const string& s)
 	int num = 0;
 	istringstream(s) >> num;
 	return num;
+}
+
+template<class T1, class T2>
+bool self_unordered_set(pair<T1,T2> insertv, pair<T1,T2> findv)
+{
+	auto hash = [](const pair<T1,T2>& p) { return p.first + 10001 * p.second; };
+	auto equal = [](const pair<T1, T2>& p1, const pair<T1, T2>& p2)
+	{
+		return p1.first == p2.first && p1.second == p2.second;
+	};
+	unordered_set<pair<T1, T2>, decltype(hash), decltype(equal)> pair_set =
+		unordered_set<pair<T1, T2>, decltype(hash), decltype(equal)>(0, hash, equal);
+	pair_set.insert(insertv);
+	return pair_set.find(findv) != pair_set.end();
 }
